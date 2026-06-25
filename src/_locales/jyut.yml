@@ -181,6 +181,7 @@ settings:
   group_playback_memory_desc: 揀選係咪記住倍速同影片比例。
   group_video_page_actions: 影片頁功能
   group_video_page_actions_desc: 標籤只用嚟切換影片頁同播放器控制欄入面相關按鈕嘅顯示。
+  group_mediasession: 媒體控制
   group_playback_behavior: 播放行為
   group_auto_play: 自動連播
   group_custom_auto_play_behavior: 播放結束行為
@@ -827,6 +828,14 @@ settings:
   enlarge_favorite_dialog_desc: 啓用後，影片頁收藏彈窗會用更大嘅尺寸顯示，方便睇同管理收藏夾。
   external_watch_later_button: 稍後再睇按鈕外置
   external_watch_later_button_desc: 啓用後，影片頁工具欄會顯示獨立嘅陣間至睇按鈕；按鈕會顯示目前影片狀態，可以撳一下加入或者剷走。
+  enable_mediasession_helper: 增強系統媒體控制資訊
+  enable_mediasession_helper_desc: 啓用後，向瀏覽器 MediaSession 提供 Bilibili 影片、直播同番劇嘅標題、作者同封面。
+  bangumi_mediasession_cover_source: 番劇封面來源
+  bangumi_mediasession_cover_source_desc: 控制番劇喺系統媒體控制入面用邊張封面。
+  bangumi_mediasession_cover_source_opt:
+    episode: 當前話封面
+    season: 番劇主封面
+    square: 方形主封面
   show_vertical_video_zoom_button: 直屏影片放大按鈕
   show_vertical_video_zoom_button_desc: 喺直屏影片播放器顯示放大/縮小按鈕同畫面位置調整控制
   show_video_screenshot_button: 顯示播放器截圖按鈕

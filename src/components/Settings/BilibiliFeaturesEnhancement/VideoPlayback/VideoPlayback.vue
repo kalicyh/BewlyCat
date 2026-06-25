@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import Radio from '~/components/Radio.vue'
 import Select from '~/components/Select.vue'
 import { settings } from '~/logic'
-import type { PlayerDefaultState, VideoPlayerModeContext } from '~/logic/storage'
+import type { BangumiMediaSessionCoverSource, PlayerDefaultState, VideoPlayerModeContext } from '~/logic/storage'
 
 import SettingsItem from '../../components/SettingsItem.vue'
 import SettingsItemGroup from '../../components/SettingsItemGroup.vue'
@@ -89,6 +89,23 @@ const playerDefaultStateOptions = computed<{ label: string, value: PlayerDefault
   { label: t('settings.video_default_state_opt.on'), value: 'on' },
   { label: t('settings.video_default_state_opt.off'), value: 'off' },
 ])
+
+const bangumiMediaSessionCoverSourceOptions = computed<{ label: string, value: BangumiMediaSessionCoverSource }[]>(() => {
+  return [
+    {
+      label: t('settings.bangumi_mediasession_cover_source_opt.episode'),
+      value: 'episode',
+    },
+    {
+      label: t('settings.bangumi_mediasession_cover_source_opt.season'),
+      value: 'season',
+    },
+    {
+      label: t('settings.bangumi_mediasession_cover_source_opt.square'),
+      value: 'square',
+    },
+  ]
+})
 </script>
 
 <template>
@@ -150,6 +167,25 @@ const playerDefaultStateOptions = computed<{ label: string, value: PlayerDefault
           />
         </SettingsItem>
       </SettingsItemSubgroup>
+    </SettingsItemGroup>
+
+    <SettingsItemGroup :title="t('settings.group_mediasession')">
+      <SettingsItem
+        :title="t('settings.enable_mediasession_helper')"
+        :desc="t('settings.enable_mediasession_helper_desc')"
+        right-width="auto"
+      >
+        <Radio v-model="settings.enableMediaSessionHelper" />
+      </SettingsItem>
+
+      <SettingsItem
+        v-if="settings.enableMediaSessionHelper"
+        :title="t('settings.bangumi_mediasession_cover_source')"
+        :desc="t('settings.bangumi_mediasession_cover_source_desc')"
+        right-width="auto"
+      >
+        <Select v-model="settings.bangumiMediaSessionCoverSource" :options="bangumiMediaSessionCoverSourceOptions" w="160px" />
+      </SettingsItem>
     </SettingsItemGroup>
 
     <SettingsItemGroup :title="t('settings.group_player_components')">

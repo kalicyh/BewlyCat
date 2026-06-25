@@ -181,6 +181,7 @@ settings:
   group_playback_memory_desc: 選擇是否記住倍速和影片比例。
   group_video_page_actions: 影片頁功能
   group_video_page_actions_desc: 標籤僅用於切換影片頁和播放器控制列中相關按鈕的顯示。
+  group_mediasession: 媒體控制
   group_playback_behavior: 播放行為
   group_auto_play: 自動連播
   group_custom_auto_play_behavior: 播放結束行為
@@ -642,6 +643,14 @@ settings:
   keep_collection_video_default_mode_desc: 當啟用時，合集影片將始終使用預設播放器模式，不會套用寬螢幕或全螢幕設定
   keep_watch_later_video_default_mode: 稍後觀看保持預設模式
   keep_watch_later_video_default_mode_desc: 啟用後，稍後觀看中的影片將始終使用預設播放器模式，不會套用寬螢幕或全螢幕設定
+  enable_mediasession_helper: 增強系統媒體控制資訊
+  enable_mediasession_helper_desc: 啟用後，向瀏覽器 MediaSession 提供 Bilibili 影片、直播和番劇的標題、作者與封面。
+  bangumi_mediasession_cover_source: 番劇封面來源
+  bangumi_mediasession_cover_source_desc: 控制番劇在系統媒體控制裡使用哪張封面。
+  bangumi_mediasession_cover_source_opt:
+    episode: 目前集數封面
+    season: 番劇主封面
+    square: 方形主封面
   remember_playback_rate: 記住倍速
   remember_playback_rate_desc: 啟用後，播放器會記住你上次設定的倍速，並在下次打開影片時自動套用
   remember_video_aspect_ratio: 記住影片比例

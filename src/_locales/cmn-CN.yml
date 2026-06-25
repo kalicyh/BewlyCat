@@ -181,6 +181,7 @@ settings:
   group_playback_memory_desc: 选择是否记住倍速和视频比例。
   group_video_page_actions: 视频页功能
   group_video_page_actions_desc: 标签仅用于切换视频页和播放器控制栏中相关按钮的显示。
+  group_mediasession: 媒体控制
   group_playback_behavior: 播放行为
   group_auto_play: 自动连播
   group_custom_auto_play_behavior: 播放结束行为
@@ -378,6 +379,14 @@ settings:
   enlarge_favorite_dialog_desc: 启用后，视频页收藏弹窗将以更大的尺寸显示，方便查看和管理收藏夹。
   external_watch_later_button: 稍后再看按钮外置
   external_watch_later_button_desc: 启用后，视频页工具栏会显示独立的稍后再看按钮；按钮会显示当前视频状态，可点击添加或移除。
+  enable_mediasession_helper: 增强系统媒体控制信息
+  enable_mediasession_helper_desc: 启用后，向浏览器 MediaSession 提供 Bilibili 视频、直播和番剧的标题、作者与封面。
+  bangumi_mediasession_cover_source: 番剧封面来源
+  bangumi_mediasession_cover_source_desc: 控制番剧在系统媒体控制里使用哪张封面。
+  bangumi_mediasession_cover_source_opt:
+    episode: 当前话封面
+    season: 番剧主封面
+    square: 方形主封面
   show_vertical_video_zoom_button: 竖屏放大按钮
   show_vertical_video_zoom_button_desc: 在竖屏视频播放器中显示放大/缩小按钮和画面位置调节控件
   show_video_screenshot_button: 显示播放器截图按钮

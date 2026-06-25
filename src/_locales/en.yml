@@ -181,6 +181,7 @@ settings:
   group_playback_memory_desc: Choose whether to remember playback rate and video aspect ratio.
   group_video_page_actions: Video Page Features
   group_video_page_actions_desc: Tags only toggle the visibility of related controls on the video page and player toolbar.
+  group_mediasession: Media Controls
   group_playback_behavior: Playback Behavior
   group_auto_play: Auto Play
   group_custom_auto_play_behavior: End-of-playback Behavior
@@ -912,6 +913,14 @@ settings:
   enlarge_favorite_dialog_desc: When enabled, the favorite dialog on video pages will be displayed in a larger size for easier viewing and management.
   external_watch_later_button: External watch later button
   external_watch_later_button_desc: Show a standalone Watch later button in the video toolbar. It displays the current state and can add or remove the video.
+  enable_mediasession_helper: Enhance system media controls
+  enable_mediasession_helper_desc: Send Bilibili video, live, and bangumi title, author, and artwork to the browser MediaSession API.
+  bangumi_mediasession_cover_source: Bangumi artwork source
+  bangumi_mediasession_cover_source_desc: Choose which artwork bangumi pages use in system media controls.
+  bangumi_mediasession_cover_source_opt:
+    episode: Current episode artwork
+    season: Season cover
+    square: Square season cover
   show_vertical_video_zoom_button: Vertical video zoom button
   show_vertical_video_zoom_button_desc: Show zoom controls and the visible-area position control for vertical videos
   show_video_screenshot_button: Show player screenshot button

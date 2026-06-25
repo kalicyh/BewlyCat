@@ -161,6 +161,7 @@ export type RecommendationMode = 'web' | 'app' | 'webNoCookie'
  * - indentOnly：仅缩进，无收起
  */
 export type CommentReplyTreeMode = 'lineCollapseMain' | 'lineKeepMain' | 'indentOnly'
+export type BangumiMediaSessionCoverSource = 'episode' | 'season' | 'square'
 
 export interface ShadowCurvePoint {
   position: number
@@ -466,6 +467,8 @@ export interface Settings {
   keyboard: boolean
   shortcuts: ShortcutsSettings
   videoPlayerScroll: boolean // 添加视频播放器滚动设置
+  enableMediaSessionHelper: boolean // 接管 MediaSession 元数据
+  bangumiMediaSessionCoverSource: BangumiMediaSessionCoverSource // 番剧 MediaSession 封面来源
 
   // 自动音量均衡设置
   enableVolumeNormalization: boolean // 启用自动音量均衡功能
@@ -758,6 +761,8 @@ export const originalSettings: Settings = {
 
   keyboard: true, // 总快捷键开关，默认为 true
   videoPlayerScroll: true, // 默认开启视频播放器滚动
+  enableMediaSessionHelper: true, // 默认启用 MediaSession 元数据增强
+  bangumiMediaSessionCoverSource: 'episode', // 默认使用右侧当前话封面
   shortcuts: {
     danmuStatus: { key: 'Shift+D', enabled: true },
     webFullscreen: { key: 'Shift+W', enabled: true },
@@ -965,6 +970,12 @@ watch(
 
     Reflect.deleteProperty(record, 'customPlayDefaultEnabled')
     Reflect.deleteProperty(record, 'randomPlayOrder')
+
+    if (!('enableMediaSessionHelper' in record))
+      record.enableMediaSessionHelper = originalSettings.enableMediaSessionHelper
+
+    if (!['episode', 'season', 'square'].includes(record.bangumiMediaSessionCoverSource))
+      record.bangumiMediaSessionCoverSource = originalSettings.bangumiMediaSessionCoverSource
 
     if (record.shortcuts?.webFullscreen?.key === 'W')
       record.shortcuts.webFullscreen.key = originalSettings.shortcuts.webFullscreen?.key
