@@ -497,9 +497,9 @@ else if (shouldInitializePageScript) {
     const mediaSession = navigator.mediaSession
     const proxy = new Proxy(mediaSession, {
       set: (target, key, value) => {
-        if (!currentSettings?.enableMediaSessionHelper)
-          return Reflect.set(target, key, value)
-        return true
+        if (currentSettings?.enableMediaSessionHelper && key === 'metadata')
+          return true
+        return Reflect.set(target, key, value)
       },
       get: (target, key) => {
         const value = (target as any)[key]
@@ -588,21 +588,22 @@ else if (shouldInitializePageScript) {
           if (!data?.title || !data.cover)
             return
 
-          const image = new Image()
-          image.onload = () => {
-            mediaSession.metadata = new window.MediaMetadata({
-              title: data.title,
-              artist: data.artist,
-              artwork: [{ src: data.cover, sizes: `${image.naturalWidth}x${image.naturalHeight}`, type: 'image/jpeg' }],
-            })
-          }
-          image.src = data.cover
+          mediaSession.metadata = new window.MediaMetadata({
+            title: data.title,
+            artist: data.artist,
+            artwork: [{ src: data.cover }],
+          })
         })
         .catch(() => undefined)
 
+    let metadataUpdateTimer: number | null = null
     const queueUpdateMetadata = () => {
-      void updateMetadata()
-      window.setTimeout(() => void updateMetadata(), 800)
+      if (metadataUpdateTimer !== null)
+        window.clearTimeout(metadataUpdateTimer)
+      metadataUpdateTimer = window.setTimeout(() => {
+        metadataUpdateTimer = null
+        void updateMetadata()
+      }, 800)
     }
 
     updateMediaSessionMetadata = queueUpdateMetadata
